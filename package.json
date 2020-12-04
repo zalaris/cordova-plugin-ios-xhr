@@ -1,6 +1,6 @@
 {
   "name": "@zalaris/cordova-plugin-ios-xhr",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Cordova iOS 6+ File XHR Plugin",
   "cordova": {
     "id": "@zalaris/cordova-plugin-ios-xhr",
