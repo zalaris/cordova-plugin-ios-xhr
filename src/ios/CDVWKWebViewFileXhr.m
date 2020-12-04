@@ -392,9 +392,14 @@ NS_ASSUME_NONNULL_BEGIN
     }
 
     //test user agent 
-    if(![_customUserAgent isEqualToString:@"false"]){
+    if (![_customUserAgent isEqualToString:@"false"]){
         [request setValue:_customUserAgent forHTTPHeaderField:@"User-Agent"];
-    }  
+    } else {
+        // use customUserAgent propery of WkWebView
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [request setValue:weakWebView.customUserAgent forHTTPHeaderField:@"User-Agent"];
+        });
+    }
     
     NSString *body64 = [body cdvwkStringForKey:@"body"];
     if (body64.length) {

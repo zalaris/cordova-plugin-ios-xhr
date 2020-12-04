@@ -43,3 +43,5 @@
 >Fixes local file access via XHR with WKWebView
 
 >CustomUserAgent is only set for XHR requests and does not override cordova's OverrideUserAgent
+
+>If customUserAgent property of WKWebView is set e.g by usgin plugin cordova-plugin-useragent than use it as User-Agent header value for XHR requests
