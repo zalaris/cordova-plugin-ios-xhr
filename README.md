@@ -15,15 +15,15 @@
 
 > Install latest release
 
-     cordova plugin add @globules-io/cordova-plugin-ios-xhr
+     cordova plugin add @zalaris/cordova-plugin-ios-xhr
      
 > Or install from github master
 
-     cordova plugin add https://github.com/globules-io/cordova-plugin-ios-xhr
+     cordova plugin add https://github.com/zalaris/cordova-plugin-ios-xhr
      
 ### Uninstall
 
-     cordova plugin rm @globules-io/cordova-plugin-ios-xhr
+     cordova plugin rm @zalaris/cordova-plugin-ios-xhr
      
 ### Preferences
 
