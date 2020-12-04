@@ -396,7 +396,7 @@ NS_ASSUME_NONNULL_BEGIN
         [request setValue:_customUserAgent forHTTPHeaderField:@"User-Agent"];
     } else {
         // use customUserAgent propery of WkWebView
-        dispatch_async(dispatch_get_main_queue(), ^{
+        dispatch_sync(dispatch_get_main_queue(), ^{
             [request setValue:weakWebView.customUserAgent forHTTPHeaderField:@"User-Agent"];
         });
     }
