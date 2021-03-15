@@ -167,8 +167,9 @@ NS_ASSUME_NONNULL_BEGIN
     }
     else
     {
-        NSURL *baseURL = [[NSBundle mainBundle] resourceURL];
-        NSString *wwwuri = [NSString stringWithFormat:@"www/%@", uri];
+        //relative to webview
+        NSURL *baseURL = [[(WKWebView *)self.webView URL] URLByDeletingLastPathComponent];
+        NSString *wwwuri = uri;
         targetURL = [NSURL URLWithString:wwwuri relativeToURL:baseURL];
     }
     
@@ -190,7 +191,9 @@ NS_ASSUME_NONNULL_BEGIN
     
     return [targetPath hasPrefix:basePath] ||
            [targetPath hasPrefix:[[NSURL fileURLWithPath:
-                                   [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0]]  absoluteString]];
+                                   [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0]]  absoluteString]]||
+           [targetPath hasPrefix:[[NSURL fileURLWithPath:
+                                   [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]]  absoluteString]];
 }
 
 /*!
