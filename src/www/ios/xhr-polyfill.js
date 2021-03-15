@@ -602,6 +602,13 @@
 
       var timeoutInSecs = (isNaN(reqContext.timeout) ? undefined : (reqContext.timeout / 1000));
 
+      // use timeout from jQuery ajax settings
+      try {
+        if (typeof jQuery != 'undefined' && jQuery.ajaxSettings.timeout > 0) {
+          timeoutInSecs = Math.ceil(jQuery.ajaxSettings.timeout / 1000);
+        }
+      } catch(e) { }
+
       var reqPayLoad = {id: id, callback: "nativeXHRResponse",
         url: HttpHandler._resolveUri(reqContext.url), method: reqContext.method,
         headers: reqContext.requestHeaders,

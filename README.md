@@ -1,6 +1,12 @@
 # cordova-plugin-ios-xhr
 ## cordova-ios 6+ File XHR Plugin
 
+
+### Preface
+> This plugin was forked from https://github.com/globules-io/cordova-plugin-ios-xhr
+
+> Purpose: Add capabilities to use customUserAgent property of WKWebView to set correct User-Agent header for XHR requests
+
 ### About
 > Originally, this plugin was a merge of two other plugins, and made compatible for cordova-ios 6+.
 
@@ -44,4 +50,6 @@
 
 >CustomUserAgent is only set for XHR requests and does not override cordova's OverrideUserAgent
 
->If customUserAgent property of WKWebView is set e.g by usgin plugin cordova-plugin-useragent than use it as User-Agent header value for XHR requests
+>If customUserAgent property of WKWebView is set (e.g. by using plugin cordova-plugin-useragent) than use it as User-Agent header for XHR requests
+
+>Override timeout for native XHR, using timeout from jQuery ($.ajaxSettings.timeout)
